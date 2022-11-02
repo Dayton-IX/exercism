@@ -10,30 +10,31 @@ pub enum LogLevel {
     Error,
 }
 /// formatter for enum to string
-impl fmt::Display for LogLevel {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match self {
-            LogLevel::Info => write!(f, "INFO"),
-            LogLevel::Warning => write!(f, "WARNING"),
-            LogLevel::Error => write!(f, "ERROR")
-        }
-    }
-}
+// impl fmt::Display for LogLevel {
+//     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+//         match self {
+//             LogLevel::Info => write!(f, "INFO"),
+//             LogLevel::Warning => write!(f, "WARNING"),
+//             LogLevel::Error => write!(f, "ERROR")
+//         }
+//     }
+// }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    let mut output = String::new();
-    output.push('[');
-    output.push_str(level.to_string());
-    output.push_str("]: ");
+    // TODO if else to call other functions depending on level
+}
+pub fn info(message: &str) -> String {
+    let mut output = String::from("[INFO]: ");
     output.push_str(message);
     return output;
 }
-pub fn info(message: &str) -> String {
-    unimplemented!("return a message for info log level")
-}
 pub fn warn(message: &str) -> String {
-    unimplemented!("return a message for warn log level")
+    let mut output = String::from("[WARNING]: ");
+    output.push_str(message);
+    return output;
 }
 pub fn error(message: &str) -> String {
-    unimplemented!("return a message for error log level")
+    let mut output = String::from("[ERROR]: ");
+    output.push_str(message);
+    return output;
 }

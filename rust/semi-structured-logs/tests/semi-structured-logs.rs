@@ -6,13 +6,11 @@ fn emits_info() {
 }
 
 #[test]
-#[ignore]
 fn emits_warning() {
     assert_eq!(warn("Timezone not set"), "[WARNING]: Timezone not set");
 }
 
 #[test]
-#[ignore]
 fn emits_error() {
     assert_eq!(error("Disk full"), "[ERROR]: Disk full");
 }
