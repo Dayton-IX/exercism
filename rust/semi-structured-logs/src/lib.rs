@@ -8,6 +8,7 @@ pub enum LogLevel {
     Info,
     Warning,
     Error,
+    Debug
 }
 /// formatter for enum to string
 // impl fmt::Display for LogLevel {
@@ -22,9 +23,21 @@ pub enum LogLevel {
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
     // TODO if else to call other functions depending on level
+    let mut output = match level {
+        LogLevel::Info => info(message),
+        LogLevel::Warning => warn(message),
+        LogLevel::Error => error(message),
+        LogLevel::Debug => debug(message)
+    };
+    return output;
 }
 pub fn info(message: &str) -> String {
     let mut output = String::from("[INFO]: ");
+    output.push_str(message);
+    return output;
+}
+pub fn debug(message: &str) -> String {
+    let mut output = String::from("[DEBUG]: ");
     output.push_str(message);
     return output;
 }
