@@ -31,3 +31,11 @@ pub fn sublist<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> Compariso
     }
     return result;
 }
+
+fn check_sublist<T: ParialEq>(_first_list: &[T], _second_list: &[T]) -> Comparison {
+    unimplemented("Not ready yet");
+}
+
+fn check_superlist<T: ParialEq>(_first_list: &[T], _second_list: &[T]) -> Comparison {
+    unimplemented("Not ready yet");
+}
